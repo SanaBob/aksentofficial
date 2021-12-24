@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, Nav, NavDropdown, Container, Form, FormControl, Button } from "react-bootstrap";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './images/logo.jpg';
+import logo from './images/logo.png';
 import './styles/NavBar.scss';
 
 const NavBar = () => {
 
+    const [language, setLanguage] = useState<boolean>(false);
+
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" sticky="top">
             <Container fluid>
-                <Navbar.Brand href="#">
+                <Navbar.Brand href="/">
                     <img src={logo} style={{ width: 100, marginTop: -7 }} />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
@@ -20,16 +22,15 @@ const NavBar = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link as={Link} to={"/"}>Home</Nav.Link>
-                        <Nav.Link as={Link} to={"/about"}>About</Nav.Link>
+                        <Nav.Link as={Link} to={"/products"}>Products</Nav.Link>
                         <Nav.Link as={Link} to={"/contact"}>Contact</Nav.Link>
-                        <NavDropdown title="Link" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                            <NavDropdown.Divider />
+                        <NavDropdown title="🌐" id="navbarScrollingDropdown">
+                            <NavDropdown.Item onClick={() => {setLanguage(false)}}>English</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => {setLanguage(true)}}>Vietnamese</NavDropdown.Item>
+                            {/* <NavDropdown.Divider />
                             <NavDropdown.Item href="#action5">
                                 Something else here
-                            </NavDropdown.Item>
+                            </NavDropdown.Item> */}
                         </NavDropdown>
                     </Nav>
                     <Form className="d-flex">

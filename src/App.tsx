@@ -1,23 +1,25 @@
-import React, { Fragment } from 'react';
-import './App.css';
+import React from 'react';
+import './App.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar';
-import About from "./components/About";
+import Products from "./components/Products";
 import Home from "./components/Home";
 import Contact from "./components/Contact";
 import Socials from "./components/Socials";
 
 const App = () => {
   return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/contact' element={<Contact />} />
-      </Routes>
-      <Socials />
-    </Router >
+    <div className="app">
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/contact' element={<Contact />} />
+        </Routes>
+        <Socials />
+      </Router >
+    </div>
   );
 }
 

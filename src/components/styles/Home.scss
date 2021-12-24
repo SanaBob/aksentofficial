@@ -1,5 +1,43 @@
-.app{
-    height: 100vh;
-    width: 100vw;
-    background-color: #fafafa;
+$primary: rgb(231, 231, 231);
+
+.app-container{
+    background-color: $primary;
 }
+.one img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+.slideshowSlider {
+    white-space: nowrap;
+    transition: ease 1000ms;
+}
+.slideshow {
+    margin: auto;
+    margin-top: 2%;
+    overflow: hidden;
+    max-width: 500px;
+    background-color: $primary;
+  }
+  .slide {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 40px;
+  }
+  .slideshowDots {
+    text-align: center;
+  }
+  .slideshowDot {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 14px 7px 0px;
+    background-color: #949494;
+  }
+  .slideshowDot.active {
+    background-color: #ffffff;
+  }
