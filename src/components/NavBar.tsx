@@ -26,7 +26,7 @@ const NavBar = () => {
                         <Nav.Link as={Link} to={"/contact"}>Contact</Nav.Link>
                         <NavDropdown title="🌐" id="navbarScrollingDropdown">
                             <NavDropdown.Item onClick={() => {setLanguage(false)}}>English</NavDropdown.Item>
-                            <NavDropdown.Item onClick={() => {setLanguage(true)}}>Vietnamese</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => {setLanguage(true)}}>Tiếng Việt</NavDropdown.Item>
                             {/* <NavDropdown.Divider />
                             <NavDropdown.Item href="#action5">
                                 Something else here
