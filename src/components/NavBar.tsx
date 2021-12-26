@@ -8,6 +8,19 @@ import './styles/NavBar.scss';
 const NavBar = () => {
 
     const [language, setLanguage] = useState<boolean>(false);
+    const [searchInput, setSearchInput] = useState<string>("");
+
+    const handleSearch = (e: any) => {
+        e.preventDefault();
+        if (searchInput === "") return;
+        document.location.href = `/products/name=${searchInput}`;
+    }
+
+    // const handleKeyDown = (e: any) => {
+    //     if (e.key === 'Enter' || e.keyCode === 13) {
+    //         handleSearch();
+    //     }
+    // }
 
     return (
         <Navbar bg="light" expand="lg" sticky="top">
@@ -25,22 +38,24 @@ const NavBar = () => {
                         <Nav.Link as={Link} to={"/products"}>Products</Nav.Link>
                         <Nav.Link as={Link} to={"/contact"}>Contact</Nav.Link>
                         <NavDropdown title="🌐" id="navbarScrollingDropdown">
-                            <NavDropdown.Item onClick={() => {setLanguage(false)}}>English</NavDropdown.Item>
-                            <NavDropdown.Item onClick={() => {setLanguage(true)}}>Tiếng Việt</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => { setLanguage(false) }}>English</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => { setLanguage(true) }}>Tiếng Việt</NavDropdown.Item>
                             {/* <NavDropdown.Divider />
                             <NavDropdown.Item href="#action5">
                                 Something else here
                             </NavDropdown.Item> */}
                         </NavDropdown>
                     </Nav>
-                    <Form className="d-flex">
+                    <Form className="d-flex" onSubmit={(e)=>handleSearch(e)}>
                         <FormControl
+                            onChange={(e) => { setSearchInput(e.target.value) }}
+                            // onKeyPress={handleKeyDown}
                             type="search"
                             placeholder="Search"
                             className="me-2"
                             aria-label="Search"
                         />
-                        <Button variant="outline-success">Search</Button>
+                        <Button variant="outline-success" type='submit' >Search</Button>
                     </Form>
                 </Navbar.Collapse>
             </Container>
