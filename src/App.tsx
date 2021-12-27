@@ -7,9 +7,12 @@ import Home from "./components/Home";
 import Contact from "./components/Contact";
 import Socials from "./components/Socials";
 import Info from "./components/Info";
+import Admin from "./components/Admin";
+import Profile from "./components/Profile";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 const App = () => {
-
   return (
     <div className="app">
       <Router>
@@ -19,7 +22,11 @@ const App = () => {
           <Route path='/products' element={<Products />} />
           <Route path='/products/:name' element={<Products />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/product/:id' element={<Info />} />
+          <Route path='/product/:ids' element={<Info />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/admin' element={<Admin />} />
         </Routes>
         <Socials />
       </Router >

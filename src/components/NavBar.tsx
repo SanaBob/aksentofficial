@@ -4,30 +4,34 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './images/logo.png';
 import './styles/NavBar.scss';
+import { useSelector, useDispatch } from "react-redux";
+import { setLanguage } from "../reducers/language";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
 
 const NavBar = () => {
 
-    const [language, setLanguage] = useState<boolean>(false);
     const [searchInput, setSearchInput] = useState<string>("");
 
     const handleSearch = (e: any) => {
         e.preventDefault();
         if (searchInput === "") return;
-        document.location.href = `/products/name=${searchInput}`;
+        document.location.href = `/products/${searchInput}`;
     }
 
-    // const handleKeyDown = (e: any) => {
-    //     if (e.key === 'Enter' || e.keyCode === 13) {
-    //         handleSearch();
-    //     }
-    // }
+    const langState = useSelector((state: any) => state.language.value);
+    const dispatch = useDispatch();
+
+    const handleLangChange = (curLang: string) => {
+        dispatch(setLanguage({ lang: curLang }));
+    }
 
     return (
         <Navbar bg="light" expand="lg" sticky="top">
             <Container fluid>
-                <Navbar.Brand href="/">
+                <Nav.Link as={Link} to={"/"}>
                     <img src={logo} style={{ width: 100, marginTop: -7 }} />
-                </Navbar.Brand>
+                </Nav.Link>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -35,23 +39,26 @@ const NavBar = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link as={Link} to={"/products"}>Products</Nav.Link>
-                        <Nav.Link as={Link} to={"/contact"}>Contact</Nav.Link>
-                        <NavDropdown title="🌐" id="navbarScrollingDropdown">
-                            <NavDropdown.Item onClick={() => { setLanguage(false) }}>English</NavDropdown.Item>
-                            <NavDropdown.Item onClick={() => { setLanguage(true) }}>Tiếng Việt</NavDropdown.Item>
+                        <Nav.Link as={Link} to={"/products"}>{(langState.lang === 'en') ? 'Products' : 'Sản phẩm'}</Nav.Link>
+                        {/* <Nav.Link as={Link} to={"/contact"}>{(langState.lang === 'en') ? 'Contact' : 'Liên lạc'}</Nav.Link> */}
+                        <NavDropdown title={(langState.lang === 'en') ? 'English' : 'Tiếng Việt'} id="navbarScrollingDropdown">
+                            <NavDropdown.Item onClick={() => { handleLangChange('en') }}>English</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => { handleLangChange('vi') }}>Tiếng Việt</NavDropdown.Item>
                             {/* <NavDropdown.Divider />
                             <NavDropdown.Item href="#action5">
                                 Something else here
                             </NavDropdown.Item> */}
                         </NavDropdown>
+                        <Nav.Link as={Link} to={"/login"}>
+                            <FontAwesomeIcon icon={faUserAlt} size="1x" />
+                        </Nav.Link>
                     </Nav>
-                    <Form className="d-flex" onSubmit={(e)=>handleSearch(e)}>
+                    <Form className="d-flex" onSubmit={(e) => handleSearch(e)}>
                         <FormControl
                             onChange={(e) => { setSearchInput(e.target.value) }}
                             // onKeyPress={handleKeyDown}
                             type="search"
-                            placeholder="Search"
+                            placeholder={(langState.lang === 'en') ? 'Search' : 'Tìm kiếm'}
                             className="me-2"
                             aria-label="Search"
                         />
