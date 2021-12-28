@@ -16,7 +16,7 @@ const Socials = () => {
                 <a>
                     © 2020-2021
                 </a>
-                <Link to="/" className="logo">
+                <Link to="/aksentofficial/" className="logo">
                     <img src={logo} style={{ width: 80, marginTop: -7 }} />
                 </Link>
                 <a>

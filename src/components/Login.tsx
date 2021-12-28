@@ -19,7 +19,7 @@ const Login = () => {
 
     useEffect(() => {
         if (userState.email !== "" && userState.password !== "") {
-            navigate("/profile");
+            navigate("/aksentofficial/profile");
         }
     }, []);
 
@@ -33,7 +33,7 @@ const Login = () => {
         });
         if (res.data) {
                 dispatch(login({ email: res.data.email, password: res.data.password, address: res.data.address, orders: res.data.orders, role: res.data.role }));
-                navigate('/profile');
+                navigate('/aksentofficial/profile');
             } else {
                 alert('wrong credentials');
         };
@@ -60,7 +60,7 @@ const Login = () => {
                 </Button>
             </Form>
             <div>
-                Don't have an account? <Link to="/register">Register</Link>
+                Don't have an account? <Link to="/aksentofficial/register">Register</Link>
             </div>
         </div>
 

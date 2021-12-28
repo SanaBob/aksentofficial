@@ -24,7 +24,7 @@ const Register = () => {
 
     useEffect(() => {
         if (userState.email !== "" && userState.password !== "") {
-            navigate("/profile");
+            navigate("/aksentofficial/profile");
         }
     }, []);
 
@@ -39,7 +39,7 @@ const Register = () => {
             telephone,
         }).then((res) => {
             alert('registation successful');
-            navigate('/login');
+            navigate('/aksentofficial/login');
         })
     }
 
@@ -106,7 +106,7 @@ const Register = () => {
                 </Button>
             </Form>
             <div>
-                Already have an account? <Link to="/login">Login</Link>
+                Already have an account? <Link to="/aksentofficial/login">Login</Link>
             </div>
         </div>
 

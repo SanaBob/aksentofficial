@@ -16,7 +16,7 @@ const NavBar = () => {
     const handleSearch = (e: any) => {
         e.preventDefault();
         if (searchInput === "") return;
-        navigate(`/products/${searchInput}`);
+        navigate(`/aksentofficial/products/${searchInput}`);
     }
 
     const navigate = useNavigate();
@@ -31,7 +31,7 @@ const NavBar = () => {
     return (
         <Navbar bg="light" expand="lg" sticky="top">
             <Container fluid>
-                <Nav.Link as={Link} to={"/"}>
+                <Nav.Link as={Link} to={"/aksentofficial"}>
                     <img src={logo} style={{ width: 100, marginTop: -7 }} />
                 </Nav.Link>
                 <Navbar.Toggle aria-controls="navbarScroll" />
@@ -41,7 +41,7 @@ const NavBar = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link as={Link} to={"/products"}>{(langState.lang === 'en') ? 'Products' : 'Sản phẩm'}</Nav.Link>
+                        <Nav.Link as={Link} to={"aksentofficial/products"}>{(langState.lang === 'en') ? 'Products' : 'Sản phẩm'}</Nav.Link>
                         {/* <Nav.Link as={Link} to={"/contact"}>{(langState.lang === 'en') ? 'Contact' : 'Liên lạc'}</Nav.Link> */}
                         <NavDropdown title={(langState.lang === 'en') ? 'English' : 'Tiếng Việt'} id="navbarScrollingDropdown">
                             <NavDropdown.Item onClick={() => { handleLangChange('en') }}>English</NavDropdown.Item>
@@ -51,7 +51,7 @@ const NavBar = () => {
                                 Something else here
                             </NavDropdown.Item> */}
                         </NavDropdown>
-                        <Nav.Link as={Link} to={"/login"}>
+                        <Nav.Link as={Link} to={"/aksentofficial/login"}>
                             <FontAwesomeIcon icon={faUserAlt} size="1x" />
                         </Nav.Link>
                     </Nav>

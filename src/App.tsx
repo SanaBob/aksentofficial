@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar';
 import Products from "./components/Products";
 import Home from "./components/Home";
-import Contact from "./components/Contact";
 import Socials from "./components/Socials";
 import Info from "./components/Info";
 import Admin from "./components/Admin";
@@ -18,15 +17,14 @@ const App = () => {
       <Router>
         <NavBar />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/products' element={<Products />} />
-          <Route path='/products/:name' element={<Products key={window.location.pathname} />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/product/:ids' element={<Info />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/admin' element={<Admin />} />
+          <Route path='/aksentofficial/' element={<Home />} />
+          <Route path='/aksentofficial/products' element={<Products />} />
+          <Route path='/aksentofficial/products/:name' element={<Products key={window.location.pathname} />} />
+          <Route path='/aksentofficial/product/:ids' element={<Info />} />
+          <Route path='/aksentofficial/profile' element={<Profile />} />
+          <Route path='/aksentofficial/login' element={<Login />} />
+          <Route path='/aksentofficial/register' element={<Register />} />
+          <Route path='/aksentofficial/admin' element={<Admin />} />
         </Routes>
         <Socials />
       </Router >

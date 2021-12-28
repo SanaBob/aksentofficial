@@ -11,7 +11,7 @@ const Profile = () => {
 
     useEffect(() => {
         if(userState.email == "" || userState.password == ""){
-            navigate('/login');
+            navigate('/aksentofficial/login');
         }
     });
 
@@ -21,7 +21,7 @@ const Profile = () => {
             <h2>{userState.email}</h2>
             <h2>{userState.address}</h2>
             <div>
-                {userState.role == "admin" ? <Link to="/admin">Admin</Link> : <h2>User</h2>}
+                {userState.role == "admin" ? <Link to="/aksentofficial/admin">Admin</Link> : <h2>User</h2>}
             </div>
         </div>
     );

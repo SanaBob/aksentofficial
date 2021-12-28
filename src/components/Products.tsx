@@ -45,7 +45,7 @@ const Products = () => {
             <div className="container">
                     {(products) ? products.map((product, index) => (
                     <div className="filter" key={`${index}`}>
-                        <Link to={`/product/${product._id}`} className = "card">
+                        <Link to={`/aksentofficial/product/${product._id}`} className = "card">
                             <img src={product.url1} className="img-bottom" alt="Card Back" />
                             <img src={product.url2} className="img-top" alt="Card Front" />
                         </Link>
