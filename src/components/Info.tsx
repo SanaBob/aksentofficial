@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from 'react-router-dom';
 import './styles/Products.scss';
+import './styles/MainDiv.scss';
 import Axios from "axios";
 
 type product = {
@@ -14,7 +15,7 @@ type product = {
 
 
 const Info = () => {
-    
+
     const [id, setId] = useState<string | null>(null);
     const [product, setProduct] = useState<product | null>(null);
 
@@ -30,7 +31,7 @@ const Info = () => {
 
     useEffect(() => {
         setId(ids ? ids : "");
-        
+
     }, []);
 
     useEffect(() => {
@@ -42,17 +43,19 @@ const Info = () => {
 
 
     return (
-        <div className="container">
-            {(product) ? (<div className="filter">
-                <a className="card">
-                    <img src={product.url1} className="img-bottom" alt="Card Back" />
-                    <img src={product.url2} className="img-top" alt="Card Front" />
-                </a>
-                <div className="description">{product.name}</div>
-                <div className="description">Size: {product.size.toString()}</div>
-                <div className="description">Color: {product.color.toString()}</div>
-            </div>) : 'Loading...'}
-            
+        <div className="main-div">
+            <div className="container">
+                {(product) ? (<div className="filter">
+                    <a className="card">
+                        <img src={product.url1} className="img-bottom" alt="Card Back" />
+                        <img src={product.url2} className="img-top" alt="Card Front" />
+                    </a>
+                    <div className="description">{product.name}</div>
+                    <div className="description">Size: {product.size.toString()}</div>
+                    <div className="description">Color: {product.color.toString()}</div>
+                </div>) : 'Loading...'}
+            </div>
+
         </div>
     );
 };

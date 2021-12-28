@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useParams, Link } from 'react-router-dom';
 import Axios from "axios";
 import './styles/Products.scss';
+import './styles/MainDiv.scss';
 
 type product = {
     _id: string,
@@ -41,7 +42,7 @@ const Products = () => {
     }, [productName]);
 
     return (
-        <div className="app">
+        <div className="main-div">
             <div className="container">
                     {(products) ? products.map((product, index) => (
                     <div className="filter" key={`${index}`}>

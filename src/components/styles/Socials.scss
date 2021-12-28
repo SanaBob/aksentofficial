@@ -1,13 +1,25 @@
 @import './Home.scss';
 
 .bottom-container {
-  margin-top: 3%;
+  margin-top: 1%;
   background: white;
   padding: 20px 50px;
   overflow: hidden;
 }
+
+.rights-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // margin-top: 1%;
+}
 a.social {
-  margin: 0 1rem;
+  margin: 0 1%;
   transition: transform 250ms;
   display: inline-block;
 }
@@ -27,6 +39,6 @@ a.shopee {
 }
 
 a.logo {
-  margin-left: 1%;
-  margin-right: 1%;
+  margin-left: 2%;
+  margin-right: 2%;
 }

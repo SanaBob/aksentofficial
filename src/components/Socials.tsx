@@ -20,9 +20,15 @@ const Socials = () => {
                     <img src={logo} style={{ width: 80, marginTop: -7 }} />
                 </Link>
                 <a>
-                    All rights reserved.
+                    Rights reserved.
                 </a>
             </div>
+            <hr style = {{
+                width: '100%',
+                color: 'black',
+                backgroundColor: 'black',
+                height: '1px',
+            }}></hr>
             <div className='social-container'>
                 <a href="https://www.facebook.com/aksentofficialvn/"
                     className="facebook social">

@@ -1,18 +1,7 @@
-.visually-hidden {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-}
-
-.card-container {
+.container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 2%;
 }
 
 .filter{
