@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/aksentofficial/static/css/main.a265bc66.css",
-    "main.js": "/aksentofficial/static/js/main.2b326266.js",
+    "main.css": "/aksentofficial/static/css/main.573401c9.css",
+    "main.js": "/aksentofficial/static/js/main.f8b87647.js",
     "static/js/787.774729bc.chunk.js": "/aksentofficial/static/js/787.774729bc.chunk.js",
     "static/media/home1.png": "/aksentofficial/static/media/home1.1867c81fd654103802f3.png",
     "static/media/home3.jpg": "/aksentofficial/static/media/home3.77b76b10c5cb8f2add57.jpg",
@@ -10,12 +10,12 @@
     "static/media/home5.jpg": "/aksentofficial/static/media/home5.9b2c12a0076e863fcf24.jpg",
     "static/media/logo.png": "/aksentofficial/static/media/logo.335ebce1aaffa6829868.png",
     "index.html": "/aksentofficial/index.html",
-    "main.a265bc66.css.map": "/aksentofficial/static/css/main.a265bc66.css.map",
-    "main.2b326266.js.map": "/aksentofficial/static/js/main.2b326266.js.map",
+    "main.573401c9.css.map": "/aksentofficial/static/css/main.573401c9.css.map",
+    "main.f8b87647.js.map": "/aksentofficial/static/js/main.f8b87647.js.map",
     "787.774729bc.chunk.js.map": "/aksentofficial/static/js/787.774729bc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a265bc66.css",
-    "static/js/main.2b326266.js"
+    "static/css/main.573401c9.css",
+    "static/js/main.f8b87647.js"
   ]
 }
