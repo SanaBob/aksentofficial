@@ -17,13 +17,13 @@ $primary: rgb(231, 231, 231);
     margin: auto;
     margin-top: 2%;
     overflow: hidden;
-    max-width: 500px;
+    max-width: 400px;
     background-color: $primary;
   }
   .slide {
     display: inline-block;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 420px;
     border-radius: 40px;
   }
   .slideshowDots {
