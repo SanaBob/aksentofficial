@@ -4,11 +4,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
 import languageReducer from './reducers/language';
+import userReducer from './reducers/user';
 import { Provider } from 'react-redux';
 
 const store = configureStore({
   reducer: {
     language: languageReducer,
+    user: userReducer,
   }
 });
 

@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import Axios from "axios";
 import './styles/Admin.scss'
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
+
 const Admin = () => {
     
     const [url1, setUrl1] = useState<string | null>(null);
@@ -9,8 +11,6 @@ const Admin = () => {
     const [name, setName] = useState<string | null>(null);
     const [color, setColor] = useState<string[] | null>(null);
     const [size, setSize] = useState<string[] | null>(null);
-
-    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
 
     const createProduct = () => {
         Axios.post(`${backendUrl}/createProduct`, {

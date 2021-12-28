@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navbar, Nav, NavDropdown, Container, Form, FormControl, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './images/logo.png';
 import './styles/NavBar.scss';
@@ -16,8 +16,10 @@ const NavBar = () => {
     const handleSearch = (e: any) => {
         e.preventDefault();
         if (searchInput === "") return;
-        document.location.href = `/products/${searchInput}`;
+        navigate(`/products/${searchInput}`);
     }
+
+    const navigate = useNavigate();
 
     const langState = useSelector((state: any) => state.language.value);
     const dispatch = useDispatch();

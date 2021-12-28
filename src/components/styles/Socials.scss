@@ -6,14 +6,6 @@
   padding: 20px 50px;
   overflow: hidden;
 }
-.right-container {
-  overflow: hidden;
-
-}
-.social-container {
-  overflow: hidden;
-
-}
 a.social {
   margin: 0 1rem;
   transition: transform 250ms;
@@ -22,7 +14,6 @@ a.social {
 a.social:hover {
   transform: translateY(-2px);
 }
-
 a.facebook {
   color: #4968ad;
 }

@@ -1,15 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import './styles/Login.scss';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import Axios from "axios";
+import { login } from '../reducers/user';
+
+const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
 
 const Login = () => {
+
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+
+    const userState = useSelector((state: any) => state.user.value);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (userState.email !== "" && userState.password !== "") {
+            navigate("/profile");
+        }
+    }, []);
+
+    const handleLogin = async (e: any) => {
+        e.preventDefault();
+        const res = await Axios.get(`${backendUrl}/getUser`, {
+            params: {
+                email: email.toLocaleLowerCase(),
+                password: password,
+            }
+        });
+        if (res.data) {
+                dispatch(login({ email: res.data.email, password: res.data.password, address: res.data.address, orders: res.data.orders, role: res.data.role }));
+                navigate('/profile');
+            } else {
+                alert('wrong credentials');
+        };
+    }
+
     return (
         <div className="login-app">
-            <Form className="login-form">
+            <Form className="login-form" onSubmit={(e) => handleLogin(e)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" placeholder="Enter email" onChange={(e) => { setEmail(e.target.value) }} />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
@@ -17,7 +52,7 @@ const Login = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} />
                 </Form.Group>
 
                 <Button variant="primary" type="submit" className='login-button'>
