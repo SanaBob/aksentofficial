@@ -8,6 +8,19 @@ import { login } from '../reducers/user';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
 
+export const hashPassword = (password: string) => {
+    var hash = 0;
+    if (password.length == 0) {
+        return hash;
+    }
+    for (var i = 0; i < password.length; i++) {
+        var char = password.charCodeAt(i);
+        hash = ((hash<<5)-hash)+char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return hash;
+}
+
 const Login = () => {
 
     const [email, setEmail] = useState<string>("");
@@ -28,7 +41,7 @@ const Login = () => {
         const res = await Axios.get(`${backendUrl}/getUser`, {
             params: {
                 email: email.toLocaleLowerCase(),
-                password: password,
+                password: hashPassword(password),
             }
         });
         if (res.data) {

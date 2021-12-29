@@ -10,6 +10,7 @@ import Admin from "./components/Admin";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Cart from "./components/Cart";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path='/aksentofficial/profile' element={<Profile />} />
           <Route path='/aksentofficial/login' element={<Login />} />
           <Route path='/aksentofficial/register' element={<Register />} />
+          <Route path='/aksentofficial/cart' element={<Cart />} />
           <Route path='/aksentofficial/admin' element={<Admin />} />
         </Routes>
         <Socials />

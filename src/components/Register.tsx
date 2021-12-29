@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import './styles/Login.scss';
 import { useSelector } from "react-redux";
 import Axios from 'axios';
+import { hashPassword } from "./Login"; 
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
 
@@ -34,7 +35,7 @@ const Register = () => {
         Axios.post(`${backendUrl}/createUser`, {
             name: firstName + " " + lastName,
             email,
-            password,
+            password: hashPassword(password),
             address: address + "," + city + "," + country + "," + zip,
             telephone,
         }).then((res) => {

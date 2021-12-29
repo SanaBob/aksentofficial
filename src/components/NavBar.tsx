@@ -7,7 +7,7 @@ import './styles/NavBar.scss';
 import { useSelector, useDispatch } from "react-redux";
 import { setLanguage } from "../reducers/language";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
+import { faUserAlt, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 const NavBar = () => {
 
@@ -53,6 +53,9 @@ const NavBar = () => {
                         </NavDropdown>
                         <Nav.Link as={Link} to={"/aksentofficial/login"}>
                             <FontAwesomeIcon icon={faUserAlt} size="1x" />
+                        </Nav.Link>
+                        <Nav.Link as={Link} to={"/aksentofficial/cart"}>
+                            <FontAwesomeIcon icon={faShoppingCart} size="1x" />
                         </Nav.Link>
                     </Nav>
                     <Form className="d-flex" onSubmit={(e) => handleSearch(e)}>
