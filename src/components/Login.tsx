@@ -50,6 +50,7 @@ const Login = () => {
                     email: res.data.email, 
                     password: res.data.password, 
                     address: res.data.address, 
+                    telephone: res.data.telephone,
                     orders: res.data.orders, 
                     role: res.data.role,
                     cart: userState.cart, 

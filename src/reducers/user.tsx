@@ -14,7 +14,7 @@ export const userSlice = createSlice({
             state.value.cart.push(action.payload);
         },
         removeCart: (state, action) => {
-            state.value.cart.splice(action.payload, 1);
+            state.value.cart.splice(action.payload.idx , 1);
         },
         updateCart: (state, action) => {
             state.value.cart[action.payload.index] = action.payload.item;
@@ -25,6 +25,6 @@ export const userSlice = createSlice({
     }
 });
 
-export const { login, logout, addCart } = userSlice.actions;
+export const { login, logout, addCart, removeCart } = userSlice.actions;
 
 export default userSlice.reducer;

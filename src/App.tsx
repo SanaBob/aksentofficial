@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Cart from "./components/Cart";
 import ForgotPassword from "./components/ForgotPassword";
+import UpdateProfile from "./components/UpdateProfile";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route path='/aksentofficial/register' element={<Register />} />
           <Route path='/aksentofficial/forgotpassword' element={<ForgotPassword />} />
           <Route path='/aksentofficial/cart' element={<Cart />} />
+          <Route path='/aksentofficial/updateprofile' element={<UpdateProfile />} />
           <Route path='/aksentofficial/admin' element={<Admin />} />
         </Routes>
         <Socials />

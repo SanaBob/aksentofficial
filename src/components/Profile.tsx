@@ -17,6 +17,10 @@ const Profile = () => {
         }
     });
 
+    const updateProfile = () => {
+        navigate('/aksentofficial/updateprofile');
+    }
+
     const handleLogout = async () => {
         dispatch(logout({cart: userState.cart}))
         navigate('/aksentofficial/');
@@ -30,6 +34,7 @@ const Profile = () => {
             <div>
                 {userState.role == "admin" ? <Link to="/aksentofficial/admin">Admin</Link> : <h2>User</h2>}
             </div>
+            <button onClick={() => {updateProfile()}}>Update Profile</button>
             <button onClick={() => {handleLogout()}}>Logout</button>            
         </div>
     );
