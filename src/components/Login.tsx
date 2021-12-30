@@ -45,7 +45,15 @@ const Login = () => {
             }
         });
         if (res.data) {
-                dispatch(login({ email: res.data.email, password: res.data.password, address: res.data.address, orders: res.data.orders, role: res.data.role }));
+                dispatch(login({ 
+                    name: res.data.name, 
+                    email: res.data.email, 
+                    password: res.data.password, 
+                    address: res.data.address, 
+                    orders: res.data.orders, 
+                    role: res.data.role,
+                    cart: userState.cart, 
+                }));
                 navigate('/aksentofficial/profile');
             } else {
                 alert('wrong credentials');
@@ -72,6 +80,9 @@ const Login = () => {
                     Login
                 </Button>
             </Form>
+            <div>
+                Forgot you password? <Link to="/aksentofficial/forgotpassword">Click here</Link>
+            </div>
             <div>
                 Don't have an account? <Link to="/aksentofficial/register">Register</Link>
             </div>

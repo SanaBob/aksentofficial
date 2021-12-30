@@ -2,17 +2,29 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const userSlice = createSlice({
     name: 'user',
-    initialState: { value: { name: '', email: '', password: '', address: '', orders: [[]], role: '' } },
+    initialState: { value: { name: '', email: '', password: '', address: '', telephone: '', orders: [[]], role: '', cart: [{}] }},
     reducers: {
         login: (state, action) => {
             state.value = action.payload;
         },
         logout: (state, action) => {
-            state.value = { name: '', email: '', password: '', address: '', orders: [[]] , role: ''};
+            state.value = { name: '', email: '', password: '', address: '', telephone: '', orders: [[]], role: '', cart: action.payload.cart };
+        },
+        addCart: (state, action) => {
+            state.value.cart.push(action.payload);
+        },
+        removeCart: (state, action) => {
+            state.value.cart.splice(action.payload, 1);
+        },
+        updateCart: (state, action) => {
+            state.value.cart[action.payload.index] = action.payload.item;
+        },
+        updateUser: (state, action) => {
+            state.value = action.payload;
         }
     }
 });
 
-export const { login } = userSlice.actions;
+export const { login, logout, addCart } = userSlice.actions;
 
 export default userSlice.reducer;

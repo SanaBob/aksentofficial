@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useParams, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Axios from "axios";
 import './styles/Products.scss';
 import './styles/MainDiv.scss';
 
-type product = {
+export type product = {
     _id: string,
     url1: string,
     url2: string,
     name: string,
     color: string[],
     size: string[],
+    price: number,
 }
 
 const Products = () => {
@@ -51,6 +52,7 @@ const Products = () => {
                             <img src={product.url2} className="img-top" alt="Card Front" />
                         </Link>
                         <div className="description">{product.name}</div>
+                        <div className="description">{product.price} VND</div>
                     </div>
                 )) : 'Loading...'}
             </div>
