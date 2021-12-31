@@ -9,6 +9,7 @@ const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
 
 const Admin = () => {
 
+    const [id, setId] = useState<string>("");
     const [name, setName] = useState<string>('');
     const [url1, setUrl1] = useState<string>('');
     const [url2, setUrl2] = useState<string>('');
@@ -18,6 +19,16 @@ const Admin = () => {
 
     const userState = useSelector((state: any) => state.user.value);
     const navigate = useNavigate();
+
+    const clearState = () => {
+        setId('');
+        setName('');
+        setUrl1('');
+        setUrl2('');
+        setColor('');
+        setSize('');
+        setPrice('');
+    }
 
     useEffect(() => {
         if (userState.email == "" || userState.password == "" || userState.role !== "admin") {
@@ -36,12 +47,14 @@ const Admin = () => {
             price,
         }).then((res) => {
             alert('product created');
+            clearState();
         })
     }
 
     const updateProduct = () => {
-        if (name === "") { alert("Please fill name"); return; };
-        Axios.post(`${backendUrl}/updateProduct`, {
+        if (id === "") { alert("Please fill id"); return; };
+        Axios.put(`${backendUrl}/updateProduct`, {
+            id,
             name,
             url1,
             url2,
@@ -49,17 +62,18 @@ const Admin = () => {
             size: size.replace(/\s/g, '').split(','),
             price,
         }).then((res) => {
+            console.log(res);
             alert('product updated');
+            clearState();
         })
     }
 
     const deleteProduct = () => {
-        if (name === "") { alert("Please fill all fields"); return; };
-        Axios.post(`${backendUrl}/deleteProduct`, {
-            name,
-        }).then((res) => {
+        if (id === "") { alert("Please fill all fields"); return; };
+        Axios.delete(`${backendUrl}/deleteProduct/${id}`).then((res) => {
             alert('product deleted');
-        })
+            clearState();
+        });
     }
 
     return (
@@ -68,31 +82,32 @@ const Admin = () => {
                 <div>
                     Create Product
                 </div>
-                <input type="text" placeholder="url1..." onChange={(event) => { setUrl1(event.target.value) }} />
-                <input type="text" placeholder="url2..." onChange={(event) => { setUrl2(event.target.value) }} />
-                <input type="text" placeholder="name..." onChange={(event) => { setName(event.target.value) }} />
-                <input type="text" placeholder="color..." onChange={(event) => { setColor(event.target.value) }} />
-                <input type="text" placeholder="size..." onChange={(event) => { setSize(event.target.value) }} />
-                <input type="number" placeholder="price..." onChange={(event) => { setPrice(event.target.value) }} />
+                <input type="text" placeholder="url1..." value={url1} onChange={(event) => { setUrl1(event.target.value) }} />
+                <input type="text" placeholder="url2..." value={url2} onChange={(event) => { setUrl2(event.target.value) }} />
+                <input type="text" placeholder="name..." value={name} onChange={(event) => { setName(event.target.value) }} />
+                <input type="text" placeholder="color..." value={color} onChange={(event) => { setColor(event.target.value) }} />
+                <input type="text" placeholder="size..." value={size} onChange={(event) => { setSize(event.target.value) }} />
+                <input type="number" placeholder="price..." value={price} onChange={(event) => { setPrice(event.target.value) }} />
                 <button onClick={() => { createProduct() }}>Create Product</button>
             </div>
             <div>
                 <div>
                     Update Product
                 </div>
-                <input type="text" placeholder="url1..." onChange={(event) => { setUrl1(event.target.value) }} />
-                <input type="text" placeholder="url2..." onChange={(event) => { setUrl2(event.target.value) }} />
-                <input type="text" placeholder="name..." onChange={(event) => { setName(event.target.value) }} />
-                <input type="text" placeholder="color..." onChange={(event) => { setColor(event.target.value) }} />
-                <input type="text" placeholder="size..." onChange={(event) => { setSize(event.target.value) }} />
-                <input type="number" placeholder="price..." onChange={(event) => { setPrice(event.target.value) }} />
+                <input type="text" placeholder="id..." value={id} onChange={(event) => { setId(event.target.value) }} />
+                <input type="text" placeholder="url1..." value={url1} onChange={(event) => { setUrl1(event.target.value) }} />
+                <input type="text" placeholder="url2..." value={url2} onChange={(event) => { setUrl2(event.target.value) }} />
+                <input type="text" placeholder="name..." value={name} onChange={(event) => { setName(event.target.value) }} />
+                <input type="text" placeholder="color..." value={color} onChange={(event) => { setColor(event.target.value) }} />
+                <input type="text" placeholder="size..." value={size} onChange={(event) => { setSize(event.target.value) }} />
+                <input type="number" placeholder="price..." value={price} onChange={(event) => { setPrice(event.target.value) }} />
                 <button onClick={() => { updateProduct() }}>Update Product</button>
             </div>
             <div>
                 <div>
                     Delete Product
                 </div>
-                <input type="text" placeholder="name..." onChange={(event) => { setName(event.target.value) }} />
+                <input type="text" placeholder="id..." value={id} onChange={(event) => { setId(event.target.value) }} />
                 <button onClick={() => { deleteProduct() }}>Delete Product</button>
             </div>
         </div>
