@@ -15,12 +15,6 @@ export const userSlice = createSlice({
         },
         removeCart: (state, action) => {
             state.value.cart.splice(action.payload.idx , 1);
-        },
-        updateCart: (state, action) => {
-            state.value.cart[action.payload.index] = action.payload.item;
-        },
-        updateUser: (state, action) => {
-            state.value = action.payload;
         }
     }
 });

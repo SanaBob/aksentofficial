@@ -42,7 +42,7 @@ const Cart = () => {
                 }) : 'No items in cart'}
             </div>
             {cartState && cartState.length > 1 ? <div>Total: {cartState.reduce((total, item) => total + (item.price || 0), 0)} VND</div> : ''}
-        </div >
+        </div>
     )
 }
 
