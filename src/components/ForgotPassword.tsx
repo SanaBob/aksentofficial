@@ -3,6 +3,7 @@ import Axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { hashPassword } from './Login';
+import './styles/Login.scss';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
 
@@ -39,7 +40,7 @@ const ForgotPassword = () => {
     }
 
     return (
-        <div>
+        <div className="login-app">
             <Form className="login-form" onSubmit={(e) => handleForgotPassword(e)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>

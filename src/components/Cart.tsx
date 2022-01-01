@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { removeCart } from './../reducers/user';
 import './styles/MainDiv.scss';
+import './styles/Cart.scss';
 
 type product = {
     name: string,
@@ -27,7 +28,7 @@ const Cart = () => {
 
     return (
         <div className="main-div">
-            <div>
+            <div className="container">
                 {cartState && cartState.length > 1 ? cartState.map((item, index) => {
                     if (index === 0) return;
                     return (
@@ -40,8 +41,8 @@ const Cart = () => {
                         </div>
                     )
                 }) : 'No items in cart'}
+                {cartState && cartState.length > 1 ? <div>Total: {cartState.reduce((total, item) => total + (item.price || 0), 0)} VND</div> : ''}
             </div>
-            {cartState && cartState.length > 1 ? <div>Total: {cartState.reduce((total, item) => total + (item.price || 0), 0)} VND</div> : ''}
         </div>
     )
 }
