@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { removeCart } from './../reducers/user';
+import { Button } from 'react-bootstrap';
 import './styles/MainDiv.scss';
 import './styles/Cart.scss';
 
@@ -37,7 +38,7 @@ const Cart = () => {
                             <div>Color: {item.color}</div>
                             <div>Size: {item.size}</div>
                             <div>Price: {item.price} VND</div>
-                            <button onClick={() => { handleRemove(index) }}>Remove Item</button>
+                            <Button variant="outline-success" onClick={() => { handleRemove(index) }}>Remove Item</Button>
                         </div>
                     )
                 }) : 'No items in cart'}

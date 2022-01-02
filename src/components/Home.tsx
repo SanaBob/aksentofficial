@@ -37,7 +37,7 @@ const Home = () => {
     return (
         <div className="app-container">
             <div className="one">
-                <img src={home1} />
+                {/* <img src={home1} /> */}
             </div>
             <div className="slideshow">
                 <div className="slideshowSlider"
