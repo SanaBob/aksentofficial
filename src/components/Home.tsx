@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import './styles/Home.scss';
-import home1 from "./images/home1.png";
 import home2 from "./images/home2.jpg";
 import home3 from "./images/home3.jpg";
 import home4 from "./images/home4.jpg";
