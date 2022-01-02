@@ -27,7 +27,7 @@ const Cart = () => {
     }
 
     return (
-        <div className="main-div">
+        // <div className="main-div">
             <div className="container">
                 {cartState && cartState.length > 1 ? cartState.map((item, index) => {
                     if (index === 0) return;
@@ -43,7 +43,7 @@ const Cart = () => {
                 }) : 'No items in cart'}
                 {cartState && cartState.length > 1 ? <div>Total: {cartState.reduce((total, item) => total + (item.price || 0), 0)} VND</div> : ''}
             </div>
-        </div>
+        // </div>
     )
 }
 

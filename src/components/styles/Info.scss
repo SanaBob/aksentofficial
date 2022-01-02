@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .filter{
+      display: inline-block;
+  }
+  
+  .description{
+      display: relative;
+      text-align: center;
+      overflow: hidden;
+  }
+  
+  .card{
+      position: relative;
+      width: 400px;
+      height: 400px;
+      display: inline-block;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 15px;
+      border: 2px solid #fff;
+  }
+  
+  img{
+      width: 100%;
+      transition: all linear 0.7s;
+  }
+  
+  img.img-top{
+      position: absolute;
+      right: 0;
+      left: 0;    
+      opacity: 0;
+  }
+  .card:hover img{
+      opacity: 0;
+  }
+  .card:hover img.img-top{
+      opacity: 1;
+  }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
-import './styles/Products.scss';
-import './styles/MainDiv.scss';
+import './styles/Info.scss';
 import Axios from "axios";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
@@ -49,8 +48,8 @@ const Info = () => {
     }
 
     return (
-        <div className="main-div">
-            <div className="container">
+        <div className="container">
+            <div className="as">
                 {(product) ? (<div className="filter">
                     <a className="card">
                         <img src={product.url1} className="img-bottom" alt="Card Back" />
@@ -63,33 +62,30 @@ const Info = () => {
                 </div>) : 'Loading...'}
             </div>
             <Form onSubmit={(e) => { handleAddCart(e) }}>
-                <Row className="container">
-                    <Form.Group as={Col} controlId="formGridSize">
-                        <Form.Label>Size</Form.Label>
-                        <Form.Select defaultValue="Choose..." onChange={(e) => { setSize(e.target.value) }} >
-                            <option>Choose...</option>
-                            {product?.size.map((e: string, index: number) => {
-                                return (<option value={e} key={index}>{e}</option>)
-                            })}
-                        </Form.Select>
-                    </Form.Group>
+                <Form.Group as={Col} controlId="formGridSize">
+                    <Form.Label>Size</Form.Label>
+                    <Form.Select defaultValue="Choose..." onChange={(e) => { setSize(e.target.value) }} >
+                        <option>Choose...</option>
+                        {product?.size.map((e: string, index: number) => {
+                            return (<option value={e} key={index}>{e}</option>)
+                        })}
+                    </Form.Select>
+                </Form.Group>
 
-                    <Form.Group as={Col} controlId="formGridColor">
-                        <Form.Label>Color</Form.Label>
-                        <Form.Select defaultValue="Choose..." onChange={(e) => { setColor(e.target.value) }} >
-                            <option>Choose...</option>
-                            {product?.color.map((e: string, index: number) => {
-                                return (<option value={e} key={index}>{e}</option>)
-                            })}
-                        </Form.Select>
-                    </Form.Group>
-                </Row>
+                <Form.Group as={Col} controlId="formGridColor">
+                    <Form.Label>Color</Form.Label>
+                    <Form.Select defaultValue="Choose..." onChange={(e) => { setColor(e.target.value) }} >
+                        <option>Choose...</option>
+                        {product?.color.map((e: string, index: number) => {
+                            return (<option value={e} key={index}>{e}</option>)
+                        })}
+                    </Form.Select>
+                </Form.Group>
 
                 <Button variant="outline-success" type="submit">
                     Add to Cart
                 </Button>
             </Form>
-            <button onClick={() => { console.log(userState); }}>test</button>
         </div>
     );
 };
